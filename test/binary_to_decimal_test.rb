@@ -33,3 +33,33 @@ describe "binary to decimal" do
     expect(binary_to_decimal(binary_array)).must_equal expected_decimal
   end
 end
+
+
+describe "decimal to binary" do
+  it "From 0 to 0" do
+    decimal = 0
+    expected_binary = 0
+
+    expect(decimal_to_binary(decimal)).must_equal expected_binary
+  end
+
+  it "From 87 to 1010111" do
+    decimal = 87
+    expected_binary = 1010111
+
+    expect(decimal_to_binary(decimal)).must_equal expected_binary
+  end
+
+  it "From 3.703125 to 11.101101" do
+    decimal = 3.703125
+    expected_binary = 11.101101
+
+    expect(decimal_to_binary(decimal)).must_equal expected_binary
+  end
+
+  it "Raises an ArgumentError if decimal is not a number" do
+    decimal = 'a'
+
+    expect{ decimal_to_binary(decimal) }.must_raise ArgumentError
+  end
+end
