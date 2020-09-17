@@ -4,25 +4,21 @@
 # The least significant bit is at index 7.
 # Calculate  and return the decimal value for this binary number using
 # the algorithm you devised in class.
-def binary_to_decimal(binary_array)# input parameter is an array of size 8
-  # raise NotImplementedError
+def binary_to_decimal(binary_array)
   decimal = 0
+  index = 0
 
-  if binary_array.length == 8
-    decimal = binary_array[7] * (2**0)
-    decimal += binary_array[6] * (2**1)
-    decimal += binary_array[5] * (2**2)
-    decimal += binary_array[4] * (2**3)
-    decimal += binary_array[3] * (2**4)
-    decimal += binary_array[2] * (2**5)
-    decimal += binary_array[1] * (2**6)
-    decimal += binary_array[0] * (2**7)
-  else
-    raise ArgumentError, "Argument must be an array of size 8."
+  until index == binary_array.length
+    power = (binary_array.length - 1) - index
+
+    decimal += binary_array[index] * ( 2 ** (power))
+
+    index += 1
   end
 
   return decimal
 end
+
 
 # Method named decimal_to_binary receives decimal number as input
 # Calculates and returns the binary value as a number for the decimal number
@@ -83,6 +79,3 @@ def decimal_to_binary(decimal)
   end
 
 end
-
-
-
